@@ -11,6 +11,12 @@ Add this line to your application's Gemfile:
 gem 'controlroom'
 ```
 
+Mount the engine on a route in routes.rb:
+
+```ruby
+mount Controlroom::Engine => "/admin"
+```
+
 And then execute:
 ```bash
 $ bundle
