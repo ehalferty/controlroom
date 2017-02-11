@@ -1,16 +1,32 @@
 module Controlroom
   class ModelsController < ApplicationController
+
+    before_filter do
+      @models = Controlroom.get_models
+    end
+
     def index
-      model_name = params[:model_name]
-      if model_name =~ /\A[a-zA-Z0-9]+\Z/
-      else
-        render 
-      end
     end
 
     def show
-      binding.pry
-      model_name = params[:model_name]
+      model_name = params[:id]
+      if model_name =~ /\A[a-zA-Z0-9]+\Z/ && @models.map(&:name).include?(model_name)
+        render text: "test"
+      else
+        render status: :unprocessable_entity
+      end
+    end
+
+    def edit
+    end
+
+    def create
+    end
+
+    def update
+    end
+
+    def delete
     end
   end
 end
