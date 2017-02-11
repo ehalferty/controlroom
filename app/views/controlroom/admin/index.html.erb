@@ -1,0 +1,13 @@
+<table class="models-list table table-striped">
+  <thead>
+    <tr>
+      <td>Class</td>
+      <td>Rows</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @models.each do |model| %>
+      <tr><td><%= model.name %></td><td><%= model.count %></td></tr>
+    <% end %>
+  </tbody>
+</table>

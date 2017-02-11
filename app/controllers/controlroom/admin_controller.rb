@@ -1,7 +1,7 @@
 module Controlroom
   class AdminController < ApplicationController
     def index
-      render text: "Hello!~"
+      @models = Controlroom.get_models
     end
   end
 end
