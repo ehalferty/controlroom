@@ -12,4 +12,10 @@ module Controlroom
   def self.get_models
     get_model_names.map(&:constantize)
   end
+
+  def self.model_name_to_model(model_name)
+    if get_model_names.include?(model_name)
+      model_name.constantize
+    end
+  end
 end

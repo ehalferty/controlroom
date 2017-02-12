@@ -11,7 +11,7 @@ module Controlroom
     def show
       model_name = params[:id]
       if model_name =~ /\A[a-zA-Z0-9]+\Z/ && @models.map(&:name).include?(model_name)
-        render text: "test"
+        @model = Controlroom.model_name_to_model model_name
       else
         render status: :unprocessable_entity
       end
