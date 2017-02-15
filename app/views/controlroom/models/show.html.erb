@@ -14,3 +14,21 @@
     <% end %>
   </tbody>
 </table>
+<h3>Rows:</h3>
+<table class="table table-bordered table-striped">
+  <thead>
+    <% @columns.each do |col| %>
+      <td><%= col.name %></td>
+    <% end %>
+  </thead>
+  <tbody>
+    <% @model.limit(20).each do |row| %>
+      <tr>
+        <% @columns.each do |col| %>
+          <td><%= row.send(col.name) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
