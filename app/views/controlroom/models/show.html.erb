@@ -1,1 +1,16 @@
-<%= @model.inspect %>
+<h1><%= @model.name %></h1>
+<h3>Columns:</h3>
+<table class="table table-bordered table-striped">
+  <thead>
+    <td>Column Name</td>
+    <td>Type</td>
+  </thead>
+  <tbody>
+    <% @columns.each do |col| %>
+      <tr>
+        <td><%= col.name %></td>
+        <td><%= col.type %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

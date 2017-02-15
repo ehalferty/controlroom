@@ -12,6 +12,12 @@ module Controlroom
       model_name = params[:id]
       if model_name =~ /\A[a-zA-Z0-9]+\Z/ && @models.map(&:name).include?(model_name)
         @model = Controlroom.model_name_to_model model_name
+        @columns = @model.columns.map do |col|
+          OpenStruct.new({
+            name: col.name,
+            type: col.sql_type_metadata.sql_type
+          })
+        end
       else
         render status: :unprocessable_entity
       end
