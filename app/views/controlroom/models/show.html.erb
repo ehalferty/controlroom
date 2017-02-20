@@ -12,6 +12,7 @@
         <td><%= col.type %></td>
       </tr>
     <% end %>
+    <tr><td><!-- placeholder for column of edit links --></td></tr>
   </tbody>
 </table>
 <h3>Rows:</h3>
@@ -27,6 +28,7 @@
         <% @columns.each do |col| %>
           <td><%= row.send(col.name) %></td>
         <% end %>
+        <td><%= link_to "Edit", edit_model_row_path(@model.name, row.id) %></td>
       </tr>
     <% end %>
   </tbody>
